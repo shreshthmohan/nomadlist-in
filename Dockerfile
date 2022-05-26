@@ -42,6 +42,8 @@ ENV NODE_ENV="production"
 
 WORKDIR /myapp
 
+COPY --from=production-deps /myapp/node_modules /myapp/node_modules
+
 COPY --from=build /myapp/build /myapp/build
 COPY --from=build /myapp/public /myapp/public
 ADD . .
