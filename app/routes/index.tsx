@@ -8,27 +8,29 @@ import { monthsShort } from "data/monthLabels"
 import { timeFormat } from "d3"
 import { capitalizeFirstLetter } from "utils/capitalizeFirstLetter"
 
+// TODO: min-max from user input data
+
 const comfortTemperateDefaultRange = [12, 27]
 
 export const loader: LoaderFunction = ({ request }) => {
   const url = new URL(request.url)
-  // const  minComfortTempRaw = url.searchParams.get("min-comfort-temp")
-  const minComfortTemp = Number.parseFloat(
-    (url.searchParams.get("min-comfort-temp") as string) ??
-      comfortTemperateDefaultRange[0]
+  const minComfortTempParsed = Number.parseFloat(
+    url.searchParams.get("min-comfort-temp") as string
   )
+  const minComfortTemp = Number.isNaN(minComfortTempParsed)
+    ? comfortTemperateDefaultRange[0]
+    : minComfortTempParsed
+  const maxComfortTempParsed = Number.parseFloat(
+    url.searchParams.get("max-comfort-temp") as string
+  )
+  const maxComfortTemp = Number.isNaN(maxComfortTempParsed)
+    ? comfortTemperateDefaultRange[1]
+    : maxComfortTempParsed
 
-  const maxComfortTemp = Number.parseFloat(
-    (url.searchParams.get("max-comfort-temp") as string) ??
-      comfortTemperateDefaultRange[1]
-  )
-  // console.log([weatherData, minComfortTemp, maxComfortTemp])
   const matchingPlacesAndMonths = suitablePlacesAndMonths(weatherData, [
     minComfortTemp,
     maxComfortTemp,
   ])
-
-  // console.log("loader matched places:", matchingPlacesAndMonths)
 
   const filteredWeatherData: WeatherData = {}
   Object.keys(matchingPlacesAndMonths).forEach((place) => {
@@ -38,7 +40,13 @@ export const loader: LoaderFunction = ({ request }) => {
   const currentMonth = timeFormat("%b")(new Date()).toLowerCase()
   // console.log({ currentMonth: currentMonth.toLowerCase() })
 
-  return json({ filteredWeatherData, matchingPlacesAndMonths, currentMonth })
+  return json({
+    filteredWeatherData,
+    matchingPlacesAndMonths,
+    currentMonth,
+    comfortTemperatureRange: [minComfortTemp, maxComfortTemp],
+    totalPlaces: Object.keys(weatherData).length,
+  })
 }
 
 export default function ClimateFinder() {
@@ -48,6 +56,8 @@ export default function ClimateFinder() {
     filteredWeatherData: weatherData,
     matchingPlacesAndMonths,
     currentMonth,
+    comfortTemperatureRange,
+    totalPlaces,
   } = useLoaderData()
   // console.log({ weatherData })
 
@@ -63,7 +73,7 @@ export default function ClimateFinder() {
                 type="number"
                 name="min-comfort-temp"
                 className="ml-2 w-10"
-                defaultValue={comfortTemperateDefaultRange[0]}
+                defaultValue={comfortTemperatureRange[0]}
               />
             </label>
             <label className="inline-block">
@@ -72,7 +82,7 @@ export default function ClimateFinder() {
                 type="number"
                 name="max-comfort-temp"
                 className="ml-2 w-10"
-                defaultValue={comfortTemperateDefaultRange[1]}
+                defaultValue={comfortTemperatureRange[1]}
               />
             </label>
           </p>
@@ -83,7 +93,11 @@ export default function ClimateFinder() {
             </button>
           </p>
         </Form>
-        <div className="py-4">
+        <div className="pb-4">
+          <p>
+            {" "}
+            {Object.keys(weatherData).length} of {totalPlaces} places matched
+          </p>
           {Object.keys(weatherData).map((place) => (
             <div key={place} className="flex-column mb-4 flex justify-center">
               <div className="">

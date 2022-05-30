@@ -12,6 +12,7 @@ export const lookFor = [
   { replace: /\s+mm/gi, with: "" },
   { replace: ",", with: "" },
   { replace: "−", with: "-" },
+  { replace: /\s+\t/g, with: "\t" },
 ]
 
 const onlyKeepCommonMetrics = true
