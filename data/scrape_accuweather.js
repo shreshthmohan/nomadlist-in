@@ -6,15 +6,31 @@ const cData = []
 
 Array.from(allDates).forEach((ch) => {
   const date = ch.children[0]?.textContent.trim()
-  if (dates.indexOf(date) === -1 && date) {
+  if (
+    dates.indexOf(date) === -1 &&
+    date &&
+    (dates.length === 0 ? date === "1" : true)
+  ) {
     // handle case when table doesn't start with 1st of the month
     dates.push(date)
     const l = ch.children[1].children ? ch.children[1].children.length : 0
+    const high =
+      l === 3
+        ? ch.children[1].children[1]?.textContent.trim()
+        : l === 2
+        ? ch.children[1].children[0]?.textContent.trim()
+        : undefined
+    const low =
+      l === 3
+        ? ch.children[1].children[2]?.textContent.trim()
+        : l === 2
+        ? ch.children[1].children[1]?.textContent.trim()
+        : undefined
 
     cData.push({
       date,
-      high: ch.children[1].children[0]?.textContent.trim(),
-      low: ch.children[1].children[1]?.textContent.trim(),
+      high,
+      low,
     })
   }
 })
