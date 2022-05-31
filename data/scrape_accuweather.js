@@ -7,11 +7,14 @@ const cData = []
 Array.from(allDates).forEach((ch) => {
   const date = ch.children[0]?.textContent.trim()
   if (dates.indexOf(date) === -1 && date) {
+    // handle case when table doesn't start with 1st of the month
     dates.push(date)
+    const l = ch.children[1].children ? ch.children[1].children.length : 0
+
     cData.push({
       date,
-      high: ch.children[1]?.children[0]?.textContent.trim(),
-      low: ch.children[1]?.children[1]?.textContent.trim(),
+      high: ch.children[1].children[0]?.textContent.trim(),
+      low: ch.children[1].children[1]?.textContent.trim(),
     })
   }
 })
@@ -32,5 +35,9 @@ cData.forEach((d) => {
 
 const avgLow = avgLowSum / datesCount
 const avgHigh = avgHighSum / datesCount
+const month = document
+  .getElementsByClassName("map-dropdown-toggle")[0]
+  .textContent.trim()
 
-console.log(avgLow, avgHigh, datesCount)
+console.log(avgLow.toFixed(0), avgHigh.toFixed(0), datesCount, month)
+// console.log(avgLow, avgHigh, datesCount, month)
