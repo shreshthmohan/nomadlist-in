@@ -7,6 +7,15 @@ import type { WeatherData } from "data/weatherDataTypes"
 import { monthsShort } from "data/monthLabels"
 import { timeFormat } from "d3"
 import { capitalizeFirstLetter } from "utils/capitalizeFirstLetter"
+import { unitsForMetrics } from "data/units"
+
+// type Metrics =
+//   | "average high"
+//   | "average low"
+//   | "average precipitation"
+//   | "average precipitation days"
+
+type Metrics = keyof typeof unitsForMetrics
 
 // TODO: min-max from user input data
 
@@ -171,9 +180,23 @@ export default function ClimateFinder() {
                             >
                               <span>
                                 {i === 0
-                                  ? capitalizeFirstLetter(
+                                  ? `${capitalizeFirstLetter(
                                       weatherData[place].data[metric][col]
-                                    )
+                                    )} ${
+                                      unitsForMetrics[
+                                        weatherData[place].data[metric][
+                                          col
+                                        ] as Metrics
+                                      ]
+                                        ? `(${
+                                            unitsForMetrics[
+                                              weatherData[place].data[metric][
+                                                col
+                                              ] as Metrics
+                                            ]
+                                          })`
+                                        : ""
+                                    }`
                                   : weatherData[place].data[metric][col]}
                               </span>
                             </td>
