@@ -9,12 +9,6 @@ import { timeFormat } from "d3"
 import { capitalizeFirstLetter } from "utils/capitalizeFirstLetter"
 import { unitsForMetrics } from "data/units"
 
-// type Metrics =
-//   | "average high"
-//   | "average low"
-//   | "average precipitation"
-//   | "average precipitation days"
-
 type Metrics = keyof typeof unitsForMetrics
 
 // TODO: min-max from user input data
