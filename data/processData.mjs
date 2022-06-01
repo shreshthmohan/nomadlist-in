@@ -5,6 +5,9 @@ import { readFileSync, writeFileSync } from "fs"
 import { intersection } from "./intersection.mjs"
 import { tsvParse } from "d3"
 import { monthsShort } from "./monthLabels.mjs"
+import { citiesByTiers } from "./cityTiers.mjs"
+import citiesData, { statesAndUts } from "./cities.mjs"
+import { placesData } from "./placesData.mjs"
 
 export const lookFor = [
   { replace: /\brain(fall|y)\b/gi, with: "precipitation" },
@@ -77,7 +80,6 @@ export function processData() {
   })
 
   // console.log(placesWeatherData.goa)
-  console.log({ errors })
 
   const commonMetrics = intersection(eachPlacesMetrics)
 
@@ -91,10 +93,35 @@ export function processData() {
     })
   }
 
+  const placesDataNew = {}
+  // get all cities in placesWeatherData
+
+  Object.keys(placesWeatherData).forEach((place) => {
+    if (placesData[place]?.stateOrUt) {
+      const stateOrUt = placesData[place]?.stateOrUt
+      if (statesAndUts.indexOf(stateOrUt) === -1) {
+        errors.push(`Invalid state/UT value, ${stateOrUt} for ${place}`)
+      }
+    }
+    placesDataNew[place] = {
+      tier: citiesByTiers[place] ?? 3,
+      elevation: placesData[place].elevation,
+      beachOrHill: placesData[place].beachOrHill || null,
+      population:
+        citiesData[place]?.population_2011 ?? placesData[place].population,
+      stateOrUt:
+        citiesData[place]?.state_or_ut ?? placesData[place].stateOrUt ?? null,
+      name: place,
+      latLong: placesData[place].latLong,
+    }
+  })
+
+  console.log({ errors })
   return {
     weatherData: placesWeatherData,
     commonMetrics,
     uniqueMetrics: Array.from(new Set(allMetricLabels)),
+    placesData: placesDataNew,
     errors,
   }
 }
@@ -111,4 +138,9 @@ writeFileSync(
       processedData.uniqueMetrics
     )}\n` +
     `export const errors = ${JSON.stringify(processedData.errors)}\n`
+)
+
+writeFileSync(
+  "placesData.mjs",
+  `export const placesData = ${JSON.stringify(processedData.placesData)}\n`
 )
