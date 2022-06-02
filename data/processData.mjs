@@ -105,14 +105,18 @@ export function processData() {
     }
     placesDataNew[place] = {
       tier: citiesByTiers[place] ?? 3,
-      elevation: placesData[place].elevation,
-      beachOrHill: placesData[place].beachOrHill || null,
+      elevation: placesData[place]?.elevation ?? null,
+      beachOrHill: placesData[place]?.beachOrHill ?? null,
       population:
-        citiesData[place]?.population_2011 ?? placesData[place].population,
+        citiesData[place]?.population_2011 ??
+        placesData[place]?.population ??
+        null,
       stateOrUt:
-        citiesData[place]?.state_or_ut ?? placesData[place].stateOrUt ?? null,
+        citiesData[place]?.state_or_ut ?? placesData[place]?.stateOrUt ?? null,
       name: place,
-      latLong: placesData[place].latLong,
+      latLong: placesData[place]?.latLong ?? null,
+      populationDensity: placesData[place]?.populationDensity ?? null,
+      area: placesData[place].area ?? null,
     }
   })
 

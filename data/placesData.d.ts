@@ -32,7 +32,7 @@ export type StateOrUt =
 
 export type PlacesData = {
   [key: string]: {
-    elevation: number
+    elevation: number // m
     beachOrHill: "hills" | "beaches" | null
     aliases?: string[]
     population: number
@@ -40,5 +40,7 @@ export type PlacesData = {
     stateOrUt: StateOrUt
     tier: 1 | 2 | 3
     latLong: [number, number]
+    populationDensity: number // km^-2
+    area: number // km^2
   }
 }
