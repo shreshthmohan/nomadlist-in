@@ -9,6 +9,7 @@ export const placesData = {
     latLong: [24.5925, 72.7083],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   agartala: {
     tier: 3,
@@ -20,6 +21,7 @@ export const placesData = {
     latLong: [23.833333, 91.283333],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   agumbe: {
     tier: 3,
@@ -31,6 +33,7 @@ export const placesData = {
     latLong: [13.5087, 75.0959],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   ahmedabad: {
     tier: 1,
@@ -42,6 +45,7 @@ export const placesData = {
     latLong: [23.03, 72.58],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   aizawl: {
     tier: 3,
@@ -53,6 +57,7 @@ export const placesData = {
     latLong: [23.727222, 92.717778],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   bhopal: {
     tier: 2,
@@ -64,6 +69,7 @@ export const placesData = {
     latLong: [23.25, 77.416667],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   coorg: {
     tier: 3,
@@ -75,6 +81,7 @@ export const placesData = {
     latLong: [12.4209, 75.7397],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   cuttack: {
     tier: 2,
@@ -86,6 +93,7 @@ export const placesData = {
     latLong: [20.523611, 85.788056],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   darjeeling: {
     tier: 3,
@@ -97,6 +105,7 @@ export const placesData = {
     latLong: [27.0331949, 88.2646751],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   dehradun: {
     tier: 2,
@@ -108,6 +117,7 @@ export const placesData = {
     latLong: [30.345, 78.029],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   delhi: {
     tier: 1,
@@ -119,6 +129,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   dibrugarh: {
     tier: 3,
@@ -130,6 +141,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   gangtok: {
     tier: 3,
@@ -141,6 +153,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   goa: {
     tier: 3,
@@ -152,6 +165,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   gokarna: {
     tier: 3,
@@ -163,6 +177,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   guwahati: {
     tier: 2,
@@ -174,6 +189,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   hyderabad: {
     tier: 1,
@@ -185,6 +201,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   imphal: {
     tier: 3,
@@ -196,6 +213,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   itanagar: {
     tier: 3,
@@ -207,6 +225,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   jalpaiguri: {
     tier: 3,
@@ -218,6 +237,7 @@ export const placesData = {
     latLong: [26.52, 88.73],
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   jodhpur: {
     tier: 2,
@@ -229,6 +249,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   kalimpong: {
     tier: 3,
@@ -240,6 +261,19 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
+  },
+  kalpetta: {
+    tier: 3,
+    elevation: 780,
+    beachOrHill: "hills",
+    population: 90491,
+    stateOrUt: "kerala",
+    name: "kalpetta",
+    latLong: [11.62255, 76.081252],
+    populationDensity: 2200,
+    area: 40.74,
+    aliases: ["wayanad"],
   },
   keylong: {
     tier: 3,
@@ -251,6 +285,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   kodaikanal: {
     tier: 3,
@@ -262,6 +297,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   kohima: {
     tier: 3,
@@ -273,6 +309,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   kolkata: {
     tier: 1,
@@ -284,6 +321,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   leh: {
     tier: 3,
@@ -295,6 +333,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   manali: {
     tier: 3,
@@ -306,6 +345,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   mumbai: {
     tier: 1,
@@ -317,6 +357,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   mussoorie: {
     tier: 3,
@@ -328,6 +369,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   mysore: {
     tier: 3,
@@ -339,6 +381,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   nainital: {
     tier: 3,
@@ -350,6 +393,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   pune: {
     tier: 1,
@@ -361,6 +405,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   rishikesh: {
     tier: 3,
@@ -372,6 +417,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   shillong: {
     tier: 3,
@@ -383,6 +429,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   silchar: {
     tier: 3,
@@ -394,6 +441,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   siliguri: {
     tier: 2,
@@ -405,6 +453,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   tiruvannamalai: {
     tier: 2,
@@ -416,6 +465,7 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
   udaipur: {
     tier: 3,
@@ -427,5 +477,6 @@ export const placesData = {
     latLong: null,
     populationDensity: null,
     area: null,
+    aliases: null,
   },
 }

@@ -116,7 +116,8 @@ export function processData() {
       name: place,
       latLong: placesData[place]?.latLong ?? null,
       populationDensity: placesData[place]?.populationDensity ?? null,
-      area: placesData[place].area ?? null,
+      area: placesData[place]?.area ?? null,
+      aliases: placesData[place]?.aliases ?? null,
     }
   })
 

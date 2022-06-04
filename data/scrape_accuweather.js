@@ -55,5 +55,7 @@ const month = document
   .getElementsByClassName("map-dropdown-toggle")[0]
   .textContent.trim()
 
-console.log(avgLow.toFixed(0), avgHigh.toFixed(0), datesCount, month)
+console.log(
+  `${avgLow.toFixed(0)}\t${avgHigh.toFixed(0)}\t${datesCount}\t${month}`
+)
 // console.log(avgLow, avgHigh, datesCount, month)
