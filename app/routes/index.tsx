@@ -30,7 +30,17 @@ export const loader: LoaderFunction = ({ request }) => {
     ? comfortTemperateDefaultRange[1]
     : maxComfortTempParsed
 
-  const matchingPlacesAndMonths = suitablePlacesAndMonths(weatherData, [
+  const nonEmptyWeatherData: WeatherData = {}
+  Object.keys(weatherData).forEach((place) => {
+    const p = place as keyof typeof weatherData
+    if (weatherData[p].columns.length) {
+      nonEmptyWeatherData[p] = weatherData[p]
+    }
+  })
+
+  // console.log(nonEmptyWeatherData)
+
+  const matchingPlacesAndMonths = suitablePlacesAndMonths(nonEmptyWeatherData, [
     minComfortTemp,
     maxComfortTemp,
   ])
@@ -38,7 +48,7 @@ export const loader: LoaderFunction = ({ request }) => {
   const filteredWeatherData: WeatherData = {}
   Object.keys(matchingPlacesAndMonths).forEach((place) => {
     const p = place as keyof typeof weatherData
-    filteredWeatherData[p] = weatherData[p]
+    filteredWeatherData[p] = nonEmptyWeatherData[p]
   })
   const currentMonth = timeFormat("%b")(new Date()).toLowerCase()
   // console.log({ currentMonth: currentMonth.toLowerCase() })
@@ -48,7 +58,7 @@ export const loader: LoaderFunction = ({ request }) => {
     matchingPlacesAndMonths,
     currentMonth,
     comfortTemperatureRange: [minComfortTemp, maxComfortTemp],
-    totalPlaces: Object.keys(weatherData).length,
+    totalPlaces: Object.keys(nonEmptyWeatherData).length,
   })
 }
 

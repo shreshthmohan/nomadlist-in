@@ -70,7 +70,9 @@ export function processData() {
       })
     })
     parsedData.metrics = placeMetricLabels
-    eachPlacesMetrics.push(placeMetricLabels)
+    if (placeMetricLabels.length) {
+      eachPlacesMetrics.push(placeMetricLabels)
+    }
     requiredMetrics.forEach((m) => {
       if (placeMetricLabels.indexOf(m) === -1) {
         errors.push(`${m} data not present in ${filename}`)
