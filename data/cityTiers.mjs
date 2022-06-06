@@ -22,7 +22,7 @@ export const citiesByTiers = {
   bhubaneswar: 2,
   bikaner: 2,
   bilaspur: 2,
-  "bokaro steel city": 2,
+  bokaro: 2,
   chandigarh: 2,
   coimbatore: 2,
   cuttack: 2,
