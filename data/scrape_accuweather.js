@@ -58,4 +58,3 @@ const month = document
 console.log(
   `${avgLow.toFixed(0)}\t${avgHigh.toFixed(0)}\t${datesCount}\t${month}`
 )
-// console.log(avgLow, avgHigh, datesCount, month)
