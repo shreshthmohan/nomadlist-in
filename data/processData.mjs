@@ -6,7 +6,7 @@ import { intersection } from "./intersection.mjs"
 import { tsvParse } from "d3"
 import { monthsShort } from "./monthLabels.mjs"
 import { citiesByTiers } from "./cityTiers.mjs"
-import citiesData, { statesAndUts } from "./cities.mjs"
+import citiesData from "./cities.mjs"
 import { placesData } from "./placesData.mjs"
 
 export const lookFor = [
@@ -97,12 +97,6 @@ export function processData() {
   // get all cities in placesWeatherData
 
   Object.keys(placesWeatherData).forEach((place) => {
-    if (placesData[place]?.stateOrUt) {
-      const stateOrUt = placesData[place]?.stateOrUt
-      if (statesAndUts.indexOf(stateOrUt) === -1) {
-        errors.push(`Invalid state/UT value, ${stateOrUt} for ${place}`)
-      }
-    }
     placesDataNew[place] = {
       tier: citiesByTiers[place] ?? 3,
       elevation: placesData[place]?.elevation ?? null,
@@ -118,6 +112,7 @@ export function processData() {
       populationDensity: placesData[place]?.populationDensity ?? null,
       area: placesData[place]?.area ?? null,
       aliases: placesData[place]?.aliases ?? null,
+      highlights: placesData[place]?.highlights ?? null,
     }
   })
 
@@ -148,4 +143,14 @@ writeFileSync(
 writeFileSync(
   "placesData.mjs",
   `export const placesData = ${JSON.stringify(processedData.placesData)}\n`
+)
+
+const placesTypes = readFileSync("placesData.d.ts").toString()
+
+writeFileSync(
+  "placesData.ts",
+  `${placesTypes}
+export const placesData: PlacesData = ${JSON.stringify(
+    processedData.placesData
+  )}`
 )

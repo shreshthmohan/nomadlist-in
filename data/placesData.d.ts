@@ -1,4 +1,5 @@
 export type StateOrUt =
+  | "meghalaya"
   | "maharashtra"
   | "delhi"
   | "karnataka"
@@ -26,21 +27,27 @@ export type StateOrUt =
   | "mizoram"
   | "manipur"
   | "himachal pradesh"
-  | "andaman and nicobar islands ut"
+  | "andaman and nicobar islands"
   | "sikkim"
   | "goa"
+  | "arunachal pradesh"
+  | "nagaland"
+  | "ladakh"
+
+type Highlight = string | string[]
 
 export type PlacesData = {
   [key: string]: {
-    elevation: number // m
+    elevation: number | null // m
     beachOrHill: "hills" | "beaches" | null
-    aliases?: string[]
-    population: number
+    aliases?: string[] | null
+    population: number | null
     name: string
     stateOrUt: StateOrUt
     tier: 1 | 2 | 3
-    latLong: [number, number]
-    populationDensity: number // km^-2
-    area: number // km^2
+    latLong: [number, number] | null
+    populationDensity: number | null // km^-2
+    area: number | null // km^2
+    highlights: Highlight[] | null
   }
 }
