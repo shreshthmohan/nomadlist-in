@@ -21,7 +21,12 @@ export const lookFor = [
 const onlyKeepCommonMetrics = true
 
 export function processData() {
-  const requiredMetrics = ["average high", "average low"]
+  const requiredMetrics = [
+    "average high",
+    "average low",
+    "average precipitation days",
+    "average precipitation",
+  ]
 
   const allFilepaths = getAllFilesInDir("tsv")
 
@@ -43,10 +48,16 @@ export function processData() {
 
     const placename = filename.split(".")[0]
     const parsedData = tsvParse(cleanedFileData)
-    if (parsedData.columns.indexOf("metric") === -1) {
+    if (
+      parsedData.columns.length &&
+      parsedData.columns.indexOf("metric") === -1
+    ) {
       errors.push(`metric column not present in ${filename}`)
     }
-    if (parsedData.columns.indexOf("year") === -1) {
+    if (
+      parsedData.columns.length &&
+      parsedData.columns.indexOf("year") === -1
+    ) {
       errors.push(`year column not present in ${filename}`)
     }
     const parsedDataObj = { data: {}, columns: parsedData.columns }
@@ -74,10 +85,13 @@ export function processData() {
       eachPlacesMetrics.push(placeMetricLabels)
     }
     requiredMetrics.forEach((m) => {
-      if (placeMetricLabels.indexOf(m) === -1) {
+      if (placeMetricLabels.length && placeMetricLabels.indexOf(m) === -1) {
         errors.push(`${m} data not present in ${filename}`)
       }
     })
+    if (!Object.keys(parsedDataObj.data).length) {
+      errors.push(`No data in ${filename}`)
+    }
     placesWeatherData[placename] = parsedDataObj
   })
 
