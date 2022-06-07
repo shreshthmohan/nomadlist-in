@@ -30,11 +30,13 @@ export const loader: LoaderFunction = ({ request }) => {
     ? comfortTemperateDefaultRange[1]
     : maxComfortTempParsed
 
-  const nonEmptyWeatherData: WeatherData = {}
+  const nonEmptyWeatherData: WeatherData = JSON.parse(
+    JSON.stringify(weatherData)
+  )
   Object.keys(weatherData).forEach((place) => {
     const p = place as keyof typeof weatherData
-    if (weatherData[p].columns.length) {
-      nonEmptyWeatherData[p] = weatherData[p]
+    if (!weatherData[p].columns.length) {
+      delete nonEmptyWeatherData[p]
     }
   })
 
