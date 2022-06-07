@@ -486,7 +486,7 @@ export const placesData = {
   },
   pune: {
     tier: 1,
-    elevation: null,
+    elevation: 560,
     beachOrHill: null,
     population: 3115431,
     stateOrUt: "maharashtra",
@@ -499,7 +499,7 @@ export const placesData = {
   },
   rishikesh: {
     tier: 3,
-    elevation: null,
+    elevation: 340,
     beachOrHill: null,
     population: null,
     stateOrUt: "uttarakhand",
@@ -525,7 +525,7 @@ export const placesData = {
   },
   silchar: {
     tier: 3,
-    elevation: null,
+    elevation: 22,
     beachOrHill: null,
     population: 229136,
     stateOrUt: "assam",
@@ -551,7 +551,7 @@ export const placesData = {
   },
   tawang: {
     tier: 3,
-    elevation: null,
+    elevation: 3048,
     beachOrHill: null,
     population: null,
     stateOrUt: "arunachal pradesh",
