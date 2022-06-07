@@ -12,7 +12,7 @@
     "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "cross-env NODE_ENV=development binode --require ./mocks -- @remix-run/dev:remix dev",
     "format": "prettier --write .",
-    "data:process-format": "cd data && node processData.mjs && prettier --write placesdata.ts && cd ..",
+    "data:process-format": "cd data && node processData.mjs && prettier --write placesData.mjs placesData.ts && cd ..",
     "generate:css": "tailwindcss -i ./styles/tailwind.css -o ./app/styles/tailwind.css",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve build",
