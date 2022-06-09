@@ -110,7 +110,6 @@ export default function ClimateFinder() {
         </Form>
         <div className="pb-4">
           <p>
-            {" "}
             {Object.keys(weatherData).length} of {totalPlaces} places matched
           </p>
           {Object.keys(weatherData).map((place) => (
