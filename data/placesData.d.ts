@@ -38,7 +38,7 @@ type Highlight = string | string[]
 
 export type PlacesData = {
   [key: string]: {
-    elevation: number | null // m
+    elevation: number // m
     beachOrHill: "hills" | "beaches" | null
     aliases?: string[] | null
     population: number | null

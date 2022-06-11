@@ -38,7 +38,7 @@ type Highlight = string | string[]
 
 export type PlacesData = {
   [key: string]: {
-    elevation: number | null // m
+    elevation: number // m
     beachOrHill: "hills" | "beaches" | null
     aliases?: string[] | null
     population: number | null
@@ -224,7 +224,7 @@ export const placesData: PlacesData = {
   },
   dharamnagar: {
     tier: 3,
-    elevation: null,
+    elevation: 21,
     beachOrHill: null,
     population: null,
     stateOrUt: "tripura",
@@ -263,7 +263,7 @@ export const placesData: PlacesData = {
   },
   goa: {
     tier: 3,
-    elevation: null,
+    elevation: 7,
     beachOrHill: "beaches",
     population: null,
     stateOrUt: "goa",
@@ -436,7 +436,7 @@ export const placesData: PlacesData = {
   },
   kolkata: {
     tier: 1,
-    elevation: null,
+    elevation: 9,
     beachOrHill: null,
     population: 4486679,
     stateOrUt: "west bengal",
@@ -514,7 +514,7 @@ export const placesData: PlacesData = {
   },
   mysore: {
     tier: 3,
-    elevation: null,
+    elevation: 763,
     beachOrHill: null,
     population: 920550,
     stateOrUt: "karnataka",
@@ -527,7 +527,7 @@ export const placesData: PlacesData = {
   },
   nainital: {
     tier: 3,
-    elevation: null,
+    elevation: 2084,
     beachOrHill: "hills",
     population: null,
     stateOrUt: "uttarakhand",
@@ -540,7 +540,7 @@ export const placesData: PlacesData = {
   },
   namsai: {
     tier: 3,
-    elevation: null,
+    elevation: 156,
     beachOrHill: null,
     population: null,
     stateOrUt: "arunachal pradesh",
@@ -696,8 +696,8 @@ export const placesData: PlacesData = {
   },
   vattakanal: {
     tier: 3,
-    elevation: null,
-    beachOrHill: null,
+    elevation: 2027,
+    beachOrHill: "hills",
     population: null,
     stateOrUt: "tamil nadu",
     name: "vattakanal",
@@ -709,8 +709,8 @@ export const placesData: PlacesData = {
   },
   ziro: {
     tier: 3,
-    elevation: null,
-    beachOrHill: null,
+    elevation: 2063,
+    beachOrHill: "hills",
     population: null,
     stateOrUt: "arunachal pradesh",
     name: "ziro",
@@ -718,6 +718,6 @@ export const placesData: PlacesData = {
     populationDensity: null,
     area: null,
     aliases: null,
-    highlights: null,
+    highlights: ["hong", "http://bijitdutta.com/hong-village-ziro/"],
   },
 }

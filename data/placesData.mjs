@@ -170,7 +170,7 @@ export const placesData = {
   },
   dharamnagar: {
     tier: 3,
-    elevation: null,
+    elevation: 21,
     beachOrHill: null,
     population: null,
     stateOrUt: "tripura",
@@ -209,7 +209,7 @@ export const placesData = {
   },
   goa: {
     tier: 3,
-    elevation: null,
+    elevation: 7,
     beachOrHill: "beaches",
     population: null,
     stateOrUt: "goa",
@@ -382,7 +382,7 @@ export const placesData = {
   },
   kolkata: {
     tier: 1,
-    elevation: null,
+    elevation: 9,
     beachOrHill: null,
     population: 4486679,
     stateOrUt: "west bengal",
@@ -460,7 +460,7 @@ export const placesData = {
   },
   mysore: {
     tier: 3,
-    elevation: null,
+    elevation: 763,
     beachOrHill: null,
     population: 920550,
     stateOrUt: "karnataka",
@@ -473,7 +473,7 @@ export const placesData = {
   },
   nainital: {
     tier: 3,
-    elevation: null,
+    elevation: 2084,
     beachOrHill: "hills",
     population: null,
     stateOrUt: "uttarakhand",
@@ -486,7 +486,7 @@ export const placesData = {
   },
   namsai: {
     tier: 3,
-    elevation: null,
+    elevation: 156,
     beachOrHill: null,
     population: null,
     stateOrUt: "arunachal pradesh",
@@ -642,8 +642,8 @@ export const placesData = {
   },
   vattakanal: {
     tier: 3,
-    elevation: null,
-    beachOrHill: null,
+    elevation: 2027,
+    beachOrHill: "hills",
     population: null,
     stateOrUt: "tamil nadu",
     name: "vattakanal",
@@ -655,8 +655,8 @@ export const placesData = {
   },
   ziro: {
     tier: 3,
-    elevation: null,
-    beachOrHill: null,
+    elevation: 2063,
+    beachOrHill: "hills",
     population: null,
     stateOrUt: "arunachal pradesh",
     name: "ziro",
@@ -664,6 +664,6 @@ export const placesData = {
     populationDensity: null,
     area: null,
     aliases: null,
-    highlights: null,
+    highlights: ["hong", "http://bijitdutta.com/hong-village-ziro/"],
   },
 }
