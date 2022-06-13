@@ -501,7 +501,7 @@ export const placesData = {
     tier: 2,
     elevation: 584,
     beachOrHill: null,
-    population: 1562769,
+    population: 1486053,
     stateOrUt: "maharashtra",
     name: "nashik",
     latLong: [20, 73.78],
