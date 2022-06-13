@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  NavLink,
 } from "@remix-run/react"
 
 import tailwindStylesheetUrl from "./styles/tailwind.css"
@@ -28,7 +29,50 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <Outlet />
+        <div className="flex min-h-full flex-col justify-between">
+          <div className="mx-auto max-w-screen-lg px-3 pt-4 sm:pt-6 md:px-0">
+            <header className="relative">
+              <a className="skip-to-content" href="#main-content">
+                Skip navigation
+              </a>
+              <nav role="navigation" className="text-center">
+                <span className="flex gap-x-4">
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-xl font-normal text-gray-800 no-underline decoration-gray-500 underline-offset-2 hover:text-gray-500 hover:underline"
+                        : "text-xl font-normal text-gray-400 no-underline decoration-gray-500 underline-offset-2 hover:text-gray-500 hover:underline"
+                    }
+                  >
+                    Home
+                  </NavLink>
+                  <NavLink
+                    to="places"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-xl font-normal text-gray-800 no-underline decoration-gray-500 underline-offset-2 hover:text-gray-500 hover:underline"
+                        : "text-xl font-normal text-gray-400 no-underline decoration-gray-500 underline-offset-2 hover:text-gray-500 hover:underline"
+                    }
+                  >
+                    Places
+                  </NavLink>
+                  <NavLink
+                    to="climate-finder"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-xl font-normal text-gray-800 no-underline decoration-gray-500 underline-offset-2 hover:text-gray-500 hover:underline"
+                        : "text-xl font-normal text-gray-400 no-underline decoration-gray-500 underline-offset-2 hover:text-gray-500 hover:underline"
+                    }
+                  >
+                    Climate Finder
+                  </NavLink>
+                </span>
+              </nav>
+            </header>
+            <Outlet />
+          </div>
+        </div>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

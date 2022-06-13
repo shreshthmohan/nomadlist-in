@@ -45,72 +45,70 @@ export default function PlaceFinder() {
   const { places, placeType, totalPlaces, matchedPlaces } = useLoaderData()
   return (
     <main className="py-10 text-gray-800">
-      <div className="mx-auto max-w-screen-lg">
-        <h1>Place Finder</h1>
-        <Form method="get" className="mb-4">
-          <fieldset className="ml-0 inline-block rounded border border-gray-300">
-            <legend>Place type</legend>
-            <p className="flex gap-3">
-              <label className="">
-                <input
-                  type="checkbox"
-                  name="hills"
-                  defaultChecked={placeType.hills}
-                />
-                Hills
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="beaches"
-                  defaultChecked={placeType.beaches}
-                />
-                Beaches
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="rest"
-                  defaultChecked={placeType.rest}
-                />
-                Others
-              </label>
-            </p>
-          </fieldset>
-          <p className="">
-            <button type="submit" className="text-base">
-              Get matching places
-            </button>
+      <h1>Place Finder</h1>
+      <Form method="get" className="mb-4">
+        <fieldset className="ml-0 inline-block rounded border border-gray-300">
+          <legend>Place type</legend>
+          <p className="flex gap-3">
+            <label className="">
+              <input
+                type="checkbox"
+                name="hills"
+                defaultChecked={placeType.hills}
+              />
+              Hills
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="beaches"
+                defaultChecked={placeType.beaches}
+              />
+              Beaches
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="rest"
+                defaultChecked={placeType.rest}
+              />
+              Others
+            </label>
           </p>
-        </Form>
-        <p>
-          {matchedPlaces} of {totalPlaces} places matched
+        </fieldset>
+        <p className="">
+          <button type="submit" className="text-base">
+            Get matching places
+          </button>
         </p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-          {/* <p>{JSON.stringify(places)}</p> */}
-          {Object.keys(places).map((p, i) => (
-            <div
-              className="rounded border border-solid border-gray-200 p-4 "
-              key={p}
-            >
-              <h2 className="my-0 capitalize">{p}</h2>
-              <p className="mt-0 capitalize text-gray-400">
-                {p === places[p].stateOrUt ? "" : `${places[p].stateOrUt}`}
-              </p>
-              <p className="capitalize text-gray-500">
-                {places[p].beachOrHill === "hills"
-                  ? "🏔 "
-                  : places[p].beachOrHill === "beaches"
-                  ? "🏖 "
-                  : ""}
-                {places[p].beachOrHill}
-              </p>
-              <p>
-                {places[p].elevation && `Elevation: ${places[p].elevation} m`}
-              </p>
-            </div>
-          ))}
-        </div>
+      </Form>
+      <p>
+        {matchedPlaces} of {totalPlaces} places matched
+      </p>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+        {/* <p>{JSON.stringify(places)}</p> */}
+        {Object.keys(places).map((p, i) => (
+          <div
+            className="min-w-[260px] rounded border border-solid border-gray-200 p-4 "
+            key={p}
+          >
+            <h2 className="my-0 capitalize">{p}</h2>
+            <p className="mt-0 capitalize text-gray-400">
+              {p === places[p].stateOrUt ? "" : `${places[p].stateOrUt}`}
+            </p>
+            <p className="capitalize text-gray-500">
+              {places[p].beachOrHill === "hills"
+                ? "🏔 "
+                : places[p].beachOrHill === "beaches"
+                ? "🏖 "
+                : ""}
+              {places[p].beachOrHill}
+            </p>
+            <p>
+              {places[p].elevation && `Elevation: ${places[p].elevation} m`}
+            </p>
+          </div>
+        ))}
       </div>
     </main>
   )
