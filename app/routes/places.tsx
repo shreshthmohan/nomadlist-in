@@ -1,7 +1,5 @@
 import { json } from "@remix-run/node"
 import { Form, useLoaderData } from "@remix-run/react"
-import { Fragment } from "react"
-
 import { placesData } from "data/placesData"
 import type { PlacesData } from "data/placesData"
 import type { LoaderFunction } from "@remix-run/node"
@@ -14,7 +12,6 @@ export const loader: LoaderFunction = ({ request }) => {
   const rest = (url.searchParams.get("rest") as string) === "on"
 
   const selectedStates = url.searchParams.getAll("state")
-  // console.log(states)
 
   // when empty show all
   const filterBeachOrHill: (string | null)[] = []
@@ -28,30 +25,31 @@ export const loader: LoaderFunction = ({ request }) => {
     filterBeachOrHill.push(null)
   }
 
-  const filteredPlacesData: PlacesData = {}
-  let matchedPlaces = 0
+  let filteredPlacesData: PlacesData = {}
   Object.keys(placesData).forEach((place) => {
     if (filterBeachOrHill.includes(placesData[place].beachOrHill)) {
       filteredPlacesData[place] = placesData[place]
-      matchedPlaces++
     }
   })
 
-  const filteredPlacesByState: PlacesData = {}
-  matchedPlaces = 0
+  if (!filterBeachOrHill.length) {
+    filteredPlacesData = JSON.parse(JSON.stringify(placesData))
+  }
+
+  let filteredPlacesByState: PlacesData = {}
   Object.keys(filteredPlacesData).forEach((place) => {
     if (selectedStates.includes(filteredPlacesData[place].stateOrUt)) {
       filteredPlacesByState[place] = filteredPlacesData[place]
-      matchedPlaces++
     }
   })
 
+  if (!selectedStates.length) {
+    filteredPlacesByState = JSON.parse(JSON.stringify(filteredPlacesData))
+  }
+
   return json({
-    // places: filterBeachOrHill.length ? filteredPlacesData : placesData,
     places: filteredPlacesByState,
-    matchedPlaces: filterBeachOrHill.length
-      ? matchedPlaces
-      : Object.keys(placesData).length,
+    matchedPlaces: Object.keys(filteredPlacesByState).length,
     totalPlaces: Object.keys(placesData).length,
     placeType: { hills, beaches, rest },
     selectedStates,
@@ -59,51 +57,60 @@ export const loader: LoaderFunction = ({ request }) => {
 }
 
 export default function PlaceFinder() {
-  const { places, placeType, totalPlaces, matchedPlaces } = useLoaderData()
+  const { places, placeType, totalPlaces, matchedPlaces, selectedStates } =
+    useLoaderData()
   return (
     <main className="py-10 text-gray-800">
       <h1>Place Finder</h1>
       <Form method="get" className="mb-4">
-        <fieldset className="ml-0 inline-block rounded border border-gray-300">
-          <legend>Place type</legend>
-          <p className="flex gap-3">
-            <label className="">
-              <input
-                type="checkbox"
-                name="hills"
-                defaultChecked={placeType.hills}
-              />
-              Hills
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                name="beaches"
-                defaultChecked={placeType.beaches}
-              />
-              Beaches
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                name="rest"
-                defaultChecked={placeType.rest}
-              />
-              Others
-            </label>
-          </p>
-        </fieldset>
-        <fieldset className="inline-block overflow-y-scroll rounded border border-gray-300">
-          <legend>Choose state(s)</legend>
-          {statesAndUts.map((s) => (
-            <Fragment key={s}>
-              <input type="checkbox" id={`sut-${s}`} name="state" value={s} />
-              <label className="capitalize" htmlFor={`sut-${s}`}>
-                {s}
+        <div className="flex max-h-20">
+          <fieldset className="ml-0 inline-block rounded border border-gray-300">
+            <legend>Place type</legend>
+            <p className="flex gap-3">
+              <label className="">
+                <input
+                  type="checkbox"
+                  name="hills"
+                  defaultChecked={placeType.hills}
+                />
+                Hills
               </label>
-            </Fragment>
-          ))}
-        </fieldset>
+              <label>
+                <input
+                  type="checkbox"
+                  name="beaches"
+                  defaultChecked={placeType.beaches}
+                />
+                Beaches
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="rest"
+                  defaultChecked={placeType.rest}
+                />
+                Others
+              </label>
+            </p>
+          </fieldset>
+          <fieldset className="inline-block overflow-y-scroll rounded border border-gray-300">
+            <legend>Choose state(s)</legend>
+            {statesAndUts.map((s) => (
+              <div key={s}>
+                <input
+                  type="checkbox"
+                  id={`sut-${s}`}
+                  name="state"
+                  value={s}
+                  defaultChecked={selectedStates.includes(s)}
+                />
+                <label className="capitalize" htmlFor={`sut-${s}`}>
+                  {s}
+                </label>
+              </div>
+            ))}
+          </fieldset>
+        </div>
         <p className="">
           <button type="submit" className="text-base">
             Get matching places
@@ -133,7 +140,8 @@ export default function PlaceFinder() {
               {places[p].beachOrHill}
             </p>
             <p>
-              {places[p].elevation && `Elevation: ${places[p].elevation} m`}
+              {places[p].elevation !== null &&
+                `Elevation: ${places[p].elevation} m`}
             </p>
           </div>
         ))}
