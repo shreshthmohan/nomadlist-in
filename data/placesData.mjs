@@ -11,6 +11,7 @@ export const placesData = {
     area: 459,
     aliases: ["mount abu"],
     highlights: null,
+    offbeat: null,
   },
   agartala: {
     tier: 3,
@@ -24,6 +25,7 @@ export const placesData = {
     area: 76.5,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   agumbe: {
     tier: 3,
@@ -37,6 +39,7 @@ export const placesData = {
     area: 3,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   ahmedabad: {
     tier: 1,
@@ -50,6 +53,7 @@ export const placesData = {
     area: 505,
     aliases: ["amdavad"],
     highlights: null,
+    offbeat: null,
   },
   aizawl: {
     tier: 3,
@@ -63,6 +67,7 @@ export const placesData = {
     area: 130,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   bangalore: {
     tier: 3,
@@ -76,6 +81,7 @@ export const placesData = {
     area: 741,
     aliases: ["bengaluru"],
     highlights: null,
+    offbeat: null,
   },
   bhopal: {
     tier: 2,
@@ -89,6 +95,7 @@ export const placesData = {
     area: 463,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   chennai: {
     tier: 1,
@@ -102,6 +109,21 @@ export const placesData = {
     area: 426,
     aliases: ["madras"],
     highlights: null,
+    offbeat: null,
+  },
+  chiplun: {
+    tier: 3,
+    elevation: null,
+    beachOrHill: null,
+    population: null,
+    stateOrUt: null,
+    name: "chiplun",
+    latLong: null,
+    populationDensity: null,
+    area: null,
+    aliases: null,
+    highlights: null,
+    offbeat: null,
   },
   coorg: {
     tier: 3,
@@ -115,6 +137,7 @@ export const placesData = {
     area: 4102,
     aliases: ["madikeri", "kodagu"],
     highlights: null,
+    offbeat: null,
   },
   cuttack: {
     tier: 2,
@@ -128,6 +151,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   darjeeling: {
     tier: 3,
@@ -141,6 +165,7 @@ export const placesData = {
     area: 12.77,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   dehradun: {
     tier: 2,
@@ -154,6 +179,7 @@ export const placesData = {
     area: 196,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   delhi: {
     tier: 1,
@@ -167,6 +193,7 @@ export const placesData = {
     area: 1484,
     aliases: ["dilli", "national capital territory of delhi", "nct of delhi"],
     highlights: null,
+    offbeat: null,
   },
   dharamnagar: {
     tier: 3,
@@ -180,6 +207,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   dibrugarh: {
     tier: 3,
@@ -193,6 +221,7 @@ export const placesData = {
     area: 71.83,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   gangtok: {
     tier: 3,
@@ -206,6 +235,21 @@ export const placesData = {
     area: 19.2,
     aliases: null,
     highlights: ["enchey monastery"],
+    offbeat: null,
+  },
+  ganpatipule: {
+    tier: 3,
+    elevation: null,
+    beachOrHill: null,
+    population: null,
+    stateOrUt: null,
+    name: "ganpatipule",
+    latLong: null,
+    populationDensity: null,
+    area: null,
+    aliases: null,
+    highlights: null,
+    offbeat: null,
   },
   goa: {
     tier: 3,
@@ -219,6 +263,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   gokarna: {
     tier: 3,
@@ -232,6 +277,7 @@ export const placesData = {
     area: 10.9,
     aliases: ["kumta"],
     highlights: null,
+    offbeat: null,
   },
   guwahati: {
     tier: 2,
@@ -245,6 +291,7 @@ export const placesData = {
     area: 216,
     aliases: ["gauhati", "dispur"],
     highlights: null,
+    offbeat: null,
   },
   hyderabad: {
     tier: 1,
@@ -258,6 +305,7 @@ export const placesData = {
     area: 650,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   imphal: {
     tier: 3,
@@ -271,6 +319,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   itanagar: {
     tier: 3,
@@ -284,6 +333,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   jalpaiguri: {
     tier: 3,
@@ -297,6 +347,7 @@ export const placesData = {
     area: 12.95,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   jodhpur: {
     tier: 2,
@@ -310,6 +361,7 @@ export const placesData = {
     area: 233.5,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   kalimpong: {
     tier: 3,
@@ -327,6 +379,7 @@ export const placesData = {
       ["Deolo Hill", "Delo hill"],
       "gorkhaland",
     ],
+    offbeat: null,
   },
   kalpetta: {
     tier: 3,
@@ -340,6 +393,7 @@ export const placesData = {
     area: 40.74,
     aliases: ["wayanad"],
     highlights: null,
+    offbeat: null,
   },
   keylong: {
     tier: 3,
@@ -353,6 +407,7 @@ export const placesData = {
     area: null,
     aliases: ["kyelang"],
     highlights: null,
+    offbeat: null,
   },
   kodaikanal: {
     tier: 3,
@@ -366,6 +421,7 @@ export const placesData = {
     area: 21.45,
     aliases: ["kodaikanal lake"],
     highlights: null,
+    offbeat: null,
   },
   kohima: {
     tier: 3,
@@ -379,6 +435,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   kolkata: {
     tier: 1,
@@ -392,6 +449,7 @@ export const placesData = {
     area: null,
     aliases: ["calcutta"],
     highlights: null,
+    offbeat: null,
   },
   leh: {
     tier: 3,
@@ -405,6 +463,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   mahabalipuram: {
     tier: 3,
@@ -418,6 +477,7 @@ export const placesData = {
     area: null,
     aliases: ["mamallapuram"],
     highlights: null,
+    offbeat: null,
   },
   manali: {
     tier: 3,
@@ -431,6 +491,21 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
+  },
+  manikaran: {
+    tier: 3,
+    elevation: null,
+    beachOrHill: null,
+    population: null,
+    stateOrUt: null,
+    name: "manikaran",
+    latLong: null,
+    populationDensity: null,
+    area: null,
+    aliases: null,
+    highlights: null,
+    offbeat: null,
   },
   mumbai: {
     tier: 1,
@@ -444,6 +519,7 @@ export const placesData = {
     area: 603,
     aliases: ["bombay"],
     highlights: null,
+    offbeat: null,
   },
   mussoorie: {
     tier: 3,
@@ -457,6 +533,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   mysore: {
     tier: 3,
@@ -470,6 +547,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   nainital: {
     tier: 3,
@@ -483,6 +561,21 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
+  },
+  nakthan: {
+    tier: 3,
+    elevation: null,
+    beachOrHill: null,
+    population: null,
+    stateOrUt: null,
+    name: "nakthan",
+    latLong: null,
+    populationDensity: null,
+    area: null,
+    aliases: null,
+    highlights: null,
+    offbeat: null,
   },
   namsai: {
     tier: 3,
@@ -496,6 +589,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   nashik: {
     tier: 2,
@@ -509,6 +603,7 @@ export const placesData = {
     area: 267,
     aliases: ["nasik"],
     highlights: null,
+    offbeat: null,
   },
   pondicherry: {
     tier: 3,
@@ -522,6 +617,21 @@ export const placesData = {
     area: 19.54,
     aliases: ["puducherry"],
     highlights: null,
+    offbeat: null,
+  },
+  pulga: {
+    tier: 3,
+    elevation: null,
+    beachOrHill: null,
+    population: null,
+    stateOrUt: null,
+    name: "pulga",
+    latLong: null,
+    populationDensity: null,
+    area: null,
+    aliases: null,
+    highlights: null,
+    offbeat: null,
   },
   pune: {
     tier: 1,
@@ -535,6 +645,21 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
+  },
+  rasol: {
+    tier: 3,
+    elevation: null,
+    beachOrHill: null,
+    population: null,
+    stateOrUt: null,
+    name: "rasol",
+    latLong: null,
+    populationDensity: null,
+    area: null,
+    aliases: null,
+    highlights: null,
+    offbeat: null,
   },
   rishikesh: {
     tier: 3,
@@ -548,6 +673,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   shillong: {
     tier: 3,
@@ -561,6 +687,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   silchar: {
     tier: 3,
@@ -574,6 +701,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   siliguri: {
     tier: 2,
@@ -587,6 +715,7 @@ export const placesData = {
     area: 117.64,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   tawang: {
     tier: 3,
@@ -600,6 +729,7 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   tiruvannamalai: {
     tier: 2,
@@ -613,6 +743,7 @@ export const placesData = {
     area: null,
     aliases: ["thiruvannamalai", "trinomali", "trinomalee"],
     highlights: null,
+    offbeat: null,
   },
   udaipur: {
     tier: 3,
@@ -626,6 +757,7 @@ export const placesData = {
     area: 64,
     aliases: ["udayapura"],
     highlights: null,
+    offbeat: null,
   },
   uttarkashi: {
     tier: 3,
@@ -639,6 +771,7 @@ export const placesData = {
     area: 72,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   varkala: {
     tier: 3,
@@ -652,6 +785,7 @@ export const placesData = {
     area: 14.87,
     aliases: null,
     highlights: null,
+    offbeat: null,
   },
   vattakanal: {
     tier: 3,
@@ -665,6 +799,21 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: null,
+    offbeat: null,
+  },
+  wai: {
+    tier: 3,
+    elevation: null,
+    beachOrHill: null,
+    population: null,
+    stateOrUt: null,
+    name: "wai",
+    latLong: null,
+    populationDensity: null,
+    area: null,
+    aliases: null,
+    highlights: null,
+    offbeat: null,
   },
   ziro: {
     tier: 3,
@@ -678,5 +827,6 @@ export const placesData = {
     area: null,
     aliases: null,
     highlights: ["hong", "http://bijitdutta.com/hong-village-ziro/"],
+    offbeat: null,
   },
 }

@@ -129,6 +129,7 @@ export function processData() {
       area: placesData[place]?.area ?? null,
       aliases: placesData[place]?.aliases ?? null,
       highlights: placesData[place]?.highlights ?? null,
+      offbeat: placesData[place]?.offbeat ?? null,
     }
   })
 

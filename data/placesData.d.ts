@@ -49,5 +49,6 @@ export type PlacesData = {
     populationDensity: number | null // km^-2
     area: number | null // km^2
     highlights: Highlight[] | null
+    offbeat: boolean | null
   }
 }
