@@ -1,14 +1,20 @@
 import { json } from "@remix-run/node"
 import { Form, useLoaderData } from "@remix-run/react"
+import { Fragment } from "react"
+
 import { placesData } from "data/placesData"
 import type { PlacesData } from "data/placesData"
 import type { LoaderFunction } from "@remix-run/node"
+import { statesAndUts } from "data/statesAndUts"
 
 export const loader: LoaderFunction = ({ request }) => {
   const url = new URL(request.url)
   const hills = (url.searchParams.get("hills") as string) === "on"
   const beaches = (url.searchParams.get("beaches") as string) === "on"
   const rest = (url.searchParams.get("rest") as string) === "on"
+
+  const selectedStates = url.searchParams.getAll("state")
+  // console.log(states)
 
   // when empty show all
   const filterBeachOrHill: (string | null)[] = []
@@ -31,13 +37,24 @@ export const loader: LoaderFunction = ({ request }) => {
     }
   })
 
+  const filteredPlacesByState: PlacesData = {}
+  matchedPlaces = 0
+  Object.keys(filteredPlacesData).forEach((place) => {
+    if (selectedStates.includes(filteredPlacesData[place].stateOrUt)) {
+      filteredPlacesByState[place] = filteredPlacesData[place]
+      matchedPlaces++
+    }
+  })
+
   return json({
-    places: filterBeachOrHill.length ? filteredPlacesData : placesData,
+    // places: filterBeachOrHill.length ? filteredPlacesData : placesData,
+    places: filteredPlacesByState,
     matchedPlaces: filterBeachOrHill.length
       ? matchedPlaces
       : Object.keys(placesData).length,
     totalPlaces: Object.keys(placesData).length,
     placeType: { hills, beaches, rest },
+    selectedStates,
   })
 }
 
@@ -75,6 +92,17 @@ export default function PlaceFinder() {
               Others
             </label>
           </p>
+        </fieldset>
+        <fieldset className="inline-block overflow-y-scroll rounded border border-gray-300">
+          <legend>Choose state(s)</legend>
+          {statesAndUts.map((s) => (
+            <Fragment key={s}>
+              <input type="checkbox" id={`sut-${s}`} name="state" value={s} />
+              <label className="capitalize" htmlFor={`sut-${s}`}>
+                {s}
+              </label>
+            </Fragment>
+          ))}
         </fieldset>
         <p className="">
           <button type="submit" className="text-base">
