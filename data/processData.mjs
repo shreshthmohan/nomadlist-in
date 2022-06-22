@@ -124,6 +124,7 @@ export function processData() {
       stateOrUt:
         citiesData[place]?.state_or_ut ?? placesData[place]?.stateOrUt ?? null,
       name: place,
+      district: placesData[place]?.district ?? null,
       latLong: placesData[place]?.latLong ?? null,
       populationDensity: placesData[place]?.populationDensity ?? null,
       area: placesData[place]?.area ?? null,

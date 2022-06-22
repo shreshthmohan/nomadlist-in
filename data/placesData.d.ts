@@ -43,6 +43,7 @@ export type PlacesData = {
     aliases?: string[] | null
     population: number | null
     name: string
+    district: string | null
     stateOrUt: StateOrUt
     tier: 1 | 2 | 3
     latLong: [number, number] | null
